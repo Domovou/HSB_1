@@ -1,0 +1,112 @@
+﻿@model HSB.Models.Member
+
+@{
+    ViewData["Title"] = "Rediger";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="height:55px"></div>
+
+<h2>Rediger medlem</h2>
+<hr />
+<form asp-action="Edit">
+    <div class="row" style="font-size: 12px">
+        <div class="col-md-4">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <input type="hidden" asp-for="RowVersion" />
+
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Cpr" class="control-label"></label>
+                <input asp-for="Cpr" class="form-control" />
+                <span asp-validation-for="Cpr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNo" class="control-label"></label>
+                <input asp-for="PhoneNo" class="form-control" />
+                <span asp-validation-for="PhoneNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Zip" class="control-label"></label>
+                <input asp-for="Zip" class="form-control" />
+                <span asp-validation-for="Zip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FromDate" class="control-label"></label>
+                <input asp-for="FromDate" class="form-control" />
+                <span asp-validation-for="FromDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Subscribed" /> @Html.DisplayNameFor(model => model.Subscribed)
+                    <span asp-validation-for="Subscribed" class="text-danger"></span>
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Conditions" /> @Html.DisplayNameFor(model => model.Conditions)
+                    <span asp-validation-for="Conditions" class="text-danger"></span>
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PrivacyNotice" /> @Html.DisplayNameFor(model => model.PrivacyNotice)
+                    <span asp-validation-for="PrivacyNotice" class="text-danger"></span>
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MobilePay" /> @Html.DisplayNameFor(model => model.MobilePay)
+                </label>
+            </div>
+            <div style="height:15px"></div>
+
+            <div class="form-group" style="margin-top: 50px">
+                <input type="submit" value="Gem" class="btn btn-primary" style="margin-right: 20px" />
+
+                <button type="button" class="btn btn-info">
+                    <a asp-action="Index" style="color: white;">Tilbage til oversigt</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

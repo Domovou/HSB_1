@@ -1,0 +1,74 @@
+﻿@model IEnumerable<HSB.Models.Donor>
+
+@{
+    ViewData["Title"] = "Donorer";
+}
+
+
+
+<div style="height:55px"></div>
+<h2>Donorer</h2>
+<p class="text-right" style="  width: 60%;
+                                                                                      ">
+    <button type="button" class="btn btn-success" style="margin-right: 10px">
+        <i class='fas fa-money-check-alt' style="font-size:20px;color:#33ff33; margin-right: 10px"></i>
+        <a asp-action="Create" style="color: white;">Tilføj donor </a>
+    </button>
+
+</p>
+
+<div style="height:15px"></div>
+<table class="table" style="  width: 60%;
+                                                                                                                                                                                                                                                                                                                                                                                      ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpr)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpr)
+                </td>
+                <td class="text-right">
+                    <a asp-action="Edit" asp-route-id="@item.ID">
+                        <i class='fas fa-user-edit'
+                           data-toggle="tooltip" data-placement="left" title="Rediger" style="font-size:25px; color: #ffa366; margin-right: 10px"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.ID">
+                        <i class="fa fa-address-card"
+                           data-toggle="tooltip" data-placement="right" title="Detaljer" style="font-size:25px; color: #47b2b8; margin-right: 10px"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.ID" data-toggle="tooltip" data-placement="bottom" title="Slet">
+                        <i class="fa fa-user-times" style="font-size:25px; color: red; margin-right: 10px"></i>
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

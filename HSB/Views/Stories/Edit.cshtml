@@ -1,0 +1,64 @@
+﻿@model HSB.Models.Story
+
+
+@{
+    ViewData["Title"] = "Rediger";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="height:55px"></div>
+
+<h2>Rediger</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <input type="hidden" asp-for="RowVersion" />
+            <input type="hidden" asp-for="ImagePath" />
+            <div class="form-group">
+                <label asp-for="Headline" class="control-label"></label>
+                <input asp-for="Headline" class="form-control" />
+                <span asp-validation-for="Headline" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MyStory" class="control-label"></label>
+                <input asp-for="MyStory" class="form-control" />
+                <span asp-validation-for="MyStory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagePath" class="control-label"></label>
+                <div>
+                    <img class="col-sm-5" src="@Url.Content(Model.ImagePath)"  width="100%" height="100%"/>
+                    <a asp-action="DeleteImage" style="color:firebrick;">Slet billede</a>
+                </div>
+                <span asp-validation-for="ImagePath" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Upload et nyt billede</p>
+                    <input type="file" name="newImage" multiple>
+                </div>
+
+            </div>
+
+            <div class="form-group" style="margin-top: 50px">
+                <input type="submit" value="Gem" class="btn btn-primary" style="margin-right: 20px" />
+
+                <button type="button" class="btn btn-info">
+                    <a asp-action="Index" style="color: white;">Tilbage</a>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

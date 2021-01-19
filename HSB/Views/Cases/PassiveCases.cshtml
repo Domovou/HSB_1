@@ -1,0 +1,97 @@
+﻿@model IEnumerable<HSB.Models.Case>
+
+@{
+    ViewData["Title"] = "Afsluttede";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="height:55px"></div>
+
+<h2>Afsluttede sager</h2>
+
+<div style="height:15px"></div>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diagnosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diagnosis)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parent)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">
+                        <i class='fas fa-user-edit'
+                           data-toggle="tooltip" data-placement="left" title="Rediger" style="font-size:25px; color: #ffa366; margin-right: 10px"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.ID">
+                        <i class="fa fa-address-card"
+                           data-toggle="tooltip" data-placement="right" title="Detaljer" style="font-size:25px; color: #47b2b8; margin-right: 10px"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.ID" data-toggle="tooltip" data-placement="bottom" title="Slet">
+                        <i class="fa fa-user-times" style="font-size:25px; color: red; margin-right: 10px"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div style="height:30px"></div>
+
+<p class="text-right">
+    <button type="button" class="btn btn-info">
+        <a asp-action="Index" style="color: white;">Tilbage til oversigt</a>
+    </button>
+</p>

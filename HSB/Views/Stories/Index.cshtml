@@ -1,0 +1,67 @@
+﻿@model IEnumerable<HSB.Models.Story>
+
+
+@{
+    ViewData["Title"] = "Historier";
+}
+<div style="height:55px"></div>
+
+<h1>Historier til hjemmesiden</h1>
+<div style="height:55px"></div>
+
+<p class="text-right">
+    <button type="button" class="btn btn-success" style="margin-right: 10px">
+        <i class='fas fa-money-check-alt' style="font-size:20px;color:#33ff33; margin-right: 10px"></i>
+        <a asp-action="Create" style="color: white;">Tilføj historie </a>
+    </button>
+</p>
+
+<table class="table table-active">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Headline)
+            </th>
+            <th style="width:60%">
+                @Html.DisplayNameFor(model => model.MyStory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Headline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MyStory)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.ImagePath)" alt="Image" width="50" height="50" />
+                </td>
+
+                <td class="text-right">
+                    <a asp-action="Edit" asp-route-id="@item.ID">
+                        <i class='fas fa-user-edit'
+                           data-toggle="tooltip" data-placement="left" title="Rediger" style="font-size:25px; color: #ffa366; margin-right: 10px"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.ID">
+                        <i class="fa fa-address-card"
+                           data-toggle="tooltip" data-placement="right" title="Detaljer" style="font-size:25px; color: #47b2b8; margin-right: 10px"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.ID" data-toggle="tooltip" data-placement="bottom" title="Slet">
+                        <i class="fa fa-user-times" style="font-size: 25px; color: red; margin-right: 10px"></i>
+                    </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
